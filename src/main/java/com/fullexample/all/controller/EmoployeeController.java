@@ -41,7 +41,7 @@ public class EmoployeeController {
     public ResponseEntity<Employees> getElementById(@PathVariable("id") String empid)
     {
        Employees emp= employeeServices.getElementByIdService(empid);
-       System.out.println("ssssssssss");
+       
        return ResponseEntity.ok().body(emp);
     }
 
