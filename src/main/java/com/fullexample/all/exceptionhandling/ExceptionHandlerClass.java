@@ -9,7 +9,7 @@ import net.bytebuddy.matcher.MethodExceptionTypeMatcher;
 @RestControllerAdvice
 public class ExceptionHandlerClass {
 	
-	@ExceptionHandler(ArrayIndexOutOfBoundsException.class)
+	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<Object> ExceptionNulpointer(NullPointerException n)
 	{
 		return new ResponseEntity<>("No data found", HttpStatus.NOT_FOUND);
