@@ -40,6 +40,7 @@ public class EmoployeeController {
        Employees emp= employeeServices.getElementByIdService(empid);
        //ResponseEntity.ok()
        if(emp.equals(null)) return ResponseEntity.notFound().build();
+       System.out.println("added for quick check");
        return ResponseEntity.ok().body(emp);
     }
 
