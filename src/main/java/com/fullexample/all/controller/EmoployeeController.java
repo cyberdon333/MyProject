@@ -6,9 +6,11 @@ import com.fullexample.all.services.EmployeeServicesImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.handler.ResponseStatusExceptionHandler;
 import org.springframework.web.util.UriBuilder;
 
 import java.net.URI;
@@ -37,6 +39,7 @@ public class EmoployeeController {
     {
        Employees emp= employeeServices.getElementByIdService(empid);
        //ResponseEntity.ok()
+       if(emp.equals(null)) return ResponseEntity.notFound().build();
        return ResponseEntity.ok().body(emp);
     }
 
