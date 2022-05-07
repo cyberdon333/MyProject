@@ -3,6 +3,8 @@ package com.fullexample.all.controller;
 import com.fullexample.all.Model.Employees;
 import com.fullexample.all.services.EmployeeServices;
 import com.fullexample.all.services.EmployeeServicesImpl;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,12 @@ import org.springframework.web.util.UriBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class EmoployeeController {
      @Autowired
-    EmployeeServices employeeServices;
+  private  EmployeeServices employeeServices;
     private static final Logger Log = LoggerFactory.getLogger(EmoployeeController.class);
    // @GetMapping("getAllEmployee")
   // @GetMapping(value = "getAllEmployee",produces = "application/xml")
@@ -38,9 +41,6 @@ public class EmoployeeController {
     public ResponseEntity<Employees> getElementById(@PathVariable("id") String empid)
     {
        Employees emp= employeeServices.getElementByIdService(empid);
-       //ResponseEntity.ok()
-       if(emp.equals(null)) return new ResponseEntity<Employees>(HttpStatus.NO_CONTENT) ;
-       System.out.println("added for quick check");
        return ResponseEntity.ok().body(emp);
     }
 

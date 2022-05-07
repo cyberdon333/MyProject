@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @XmlRootElement
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Employees {
 
     @Id

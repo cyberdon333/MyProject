@@ -27,7 +27,9 @@ public class EmployeeServicesImpl implements EmployeeServices{
         if(optionalEmployees.isPresent())
             employees=   optionalEmployees.get();
         else {
-            Log.info("error to get data");return null;
+            Log.info("error to get data");
+            //throw new NullPointerException();
+            return employees;
         }
         return employees;
     }
